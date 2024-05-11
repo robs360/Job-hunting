@@ -1,0 +1,21 @@
+.drp{
+    position:absolute;
+    top:6rem;
+    right: 1rem;
+    width: 140px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid gray;
+}
+.drp::before{
+    content: '';
+    position: absolute;
+    top: -2rem;
+    right: 2rem;
+    width: 25px;
+    height: 25px;
+    transform: rotate(45deg);
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+}

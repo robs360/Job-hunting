@@ -3,7 +3,6 @@ import Nav from "./component/Home/nav"
 
 function App() {
 
-
   return (
     <>
        <Nav></Nav>

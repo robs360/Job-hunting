@@ -1,15 +1,37 @@
 <!doctype html>
 <html lang="en" data-theme="synthwave">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Vite + React</title>
-  </head>
-  <body id="change">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-    
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Vite + React</title>
+</head>
+
+<body id="change">
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <script>
+   
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+   
+    window.onclick = function (event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
 </html>
