@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import star from '../../assets/images/star2.png';
 import banner2 from '../../assets/images/banner2.jpg';
+import section from '../../assets/images/sec1.jpg'
 import { Typewriter } from 'react-simple-typewriter'
 import { motion } from "framer-motion"
+import Chart from "./charts";
 const Home = () => {
     const [theme, setTheme] = useState('light');
     const bannerStyle = {
@@ -13,16 +15,17 @@ const Home = () => {
         width: '98%',
         minHeight: '90vh'
     };
+  
     useEffect(() => {
         localStorage.setItem('theme', theme);
         const localtheme = localStorage.getItem('theme');
         console.log(localtheme)
-        document.querySelector('html').setAttribute('data-theme',localtheme)
+        document.querySelector('html').setAttribute('data-theme', localtheme)
     }, [theme])
-    
+
     return (
         <div className="w-[95%] mx-auto">
-            
+
             <div className="mx-auto rounded-md flex
              flex-col items-center justify-center
              "
@@ -83,6 +86,22 @@ const Home = () => {
                         </label>
                     </div>
                 </motion.div>
+            </div>
+            <div className="my-14 mx-auto py-4 p-2 text-black shadow-lg rounded-md" 
+            >
+                <h1 className="text-3xl font-semibold
+               text-center">Job Info and data</h1>
+                <p className="text-[17px] font-medium text-center mt-3">
+                    Job Description Components. <br />
+                    A job description contains the following
+                    components: job title, job purpose,
+                   
+                    required qualifications, preferred qualifications</p>
+            </div>
+            <div className="w-full">
+                <div className="w-full">
+                    <Chart></Chart>
+                </div>
             </div>
         </div>
     );
