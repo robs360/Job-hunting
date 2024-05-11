@@ -44,7 +44,7 @@ const Register = () => {
                 initial={{ opacity: 0, x: 380 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{
-                    duration: 2
+                    duration: 1
                 }}
                 className="flex items-center w-[280px] mx-auto">
                 <h1 className="text-3xl text-center mx-auto font-semibold">
