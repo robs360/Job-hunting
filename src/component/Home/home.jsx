@@ -5,6 +5,7 @@ import section from '../../assets/images/sec1.jpg'
 import { Typewriter } from 'react-simple-typewriter'
 import { motion } from "framer-motion"
 import Chart from "./charts";
+import Contact from "./Conatct";
 const Home = () => {
     const [theme, setTheme] = useState('light');
     const bannerStyle = {
@@ -103,6 +104,7 @@ const Home = () => {
                     <Chart></Chart>
                 </div>
             </div>
+            <Contact></Contact>
         </div>
     );
 };
