@@ -1,15 +1,22 @@
 import React, { useContext, useState } from "react";
 import logo from '../../assets/images/logo.jpg'
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import './style.css'
 import { AuthContext } from "../../AuthProvider";
 import logout from '../../assets/images/logout.png'
+import { toast } from "react-toastify";
 const Nav = () => {
     const [visible, setVisible] = useState(false);
-    const {user}=useContext(AuthContext);
+    const {user,logOut}=useContext(AuthContext);
+
+    console.log(logOut)
+
     const handleclicked = () => {
         logOut()
-            .then(res => console.log(res.user))
+            .then(res => {console.log(res.user)
+                setVisible(false)
+                toast('You have Successfully Logout')
+            })
             .catch(error => console.error(error))
     }
     return (
@@ -56,18 +63,24 @@ const Nav = () => {
                          <img src={user.photoURL} className="w-[40px]
                          h-[40px] rounded-[50%]" alt="" />
                          
-                    </button> ):( <button onClick={handleclicked}
-                    className="text-white btn text-xl font-semibold">
-                        Logout
-                   </button>)
+                    </button> ):( <Link to={'/log'}>
+                        <button
+                     className="text-white btn text-xl font-semibold">
+                        Login
+                   </button>
+                    </Link>)
                 }
                
                {
                  visible?(<div className="flex flex-col">
                  <ul className="flex flex-col gap-4 items-start drp">
-                     <button className="text-black text-xl font-semibold">Profile</button>
-                     <button className="text-black text-xl font-semibold">User</button>
-                     <button className="text-black text-xl font-semibold 
+                     <button onClick={()=>{
+                        setVisible(false)
+                     }} className="text-black text-xl font-semibold">Profile</button>
+                     <button onClick={()=>{
+                        setVisible(false)
+                     }} className="text-black text-xl font-semibold">User</button>
+                     <button onClick={handleclicked} className="text-black text-xl font-semibold 
                      flex items-center">Logout
                         <img src={logout} className="w-[20px] ml-4 h-[20px]" alt="" srcset="" />
                      </button>
