@@ -6,11 +6,13 @@ import { AuthContext } from "../../AuthProvider";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import Swal from "sweetalert2";
 // import Swal from "sweetalert2";
 
 const Addjob = () => {
     const {user}=useContext(AuthContext)
     const [startDate, setStartDate] = useState(new Date());
+    const [initial, setInitial]=useState(0);
     const bannerStyle = {
         backgroundImage: `url(${banner})`,
         backgroundSize: 'cover',
@@ -28,13 +30,14 @@ const Addjob = () => {
         const catigory=e.target.cati.value
         const descrip = e.target.descrip.value;
         const salary=e.target.salary.value;
-        const data=startDate;
+        const applicant=initial;
+        const date=startDate;
         const jobInfo = {
             name, email, photo,post,title,
-            catigory,descrip,salary,date
+            catigory,descrip,salary,date,applicant
         }
-        console.log(spotInfo);
-        fetch('',{
+        console.log(jobInfo);
+        fetch('http://localhost:5000/jobs',{
             method:'POST',
             headers:{
              'content-type':'application/json'
@@ -111,7 +114,7 @@ const Addjob = () => {
                     </div>
                 </div>
                 <div className="w-[320px] mx-auto mt-4">
-                  <button className="w-full  h-[50px] bg-orange-400
+                  <button type="submit" className="w-full  h-[50px] bg-orange-400
                    text-xl font-bold rounded-md">Submit</button>
                 </div>
             </form>
