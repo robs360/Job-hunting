@@ -14,6 +14,8 @@ import Register from './component/Authentication/Register.jsx';
 import Error from './Error.jsx';
 import Contact from './component/Home/Conatct.jsx';
 import Addjob from './component/crud/Addjob.jsx';
+import Alljob from './component/crud/Alljob.jsx';
+import Details from './component/crud/Details.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,6 +41,15 @@ const router = createBrowserRouter([
       {
         path:'/addjob',
         element:<Addjob></Addjob>
+      },
+      {
+        path:'/alljob',
+        element:<Alljob></Alljob>
+      },
+      {
+        path:'/details/:id',
+        element:<Details></Details>,
+        loader:({params})=>fetch(`http://localhost:5000/jobs/${params.id}`)
       }
     ]
   },

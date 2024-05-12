@@ -87,7 +87,7 @@ const Nav = () => {
                       <Link to={'/'}>
                          <li>Home</li>
                       </Link>
-                      <Link><li>All Job</li></Link>
+                      <Link to={'/alljob'}><li>All Job</li></Link>
                       <Link to={'/reg'}><li>Register</li></Link>
                     </ul>
                </div>):(<></>)
@@ -129,9 +129,9 @@ const Nav = () => {
                              <button onClick={() => {
                                 setVisible(false)
                             }} className="text-black text-xl font-semibold">My Job</button>
-                            <button onClick={() => {
+                           <Link to={'/addjob'}> <button onClick={() => {
                                 setVisible(false)
-                            }} className="text-black z-50 text-xl font-semibold">Add Job</button>
+                            }} className="text-black z-50 text-xl font-semibold">Add Job</button></Link>
                             <button onClick={() => {
                                 handleclicked(); setVisible(false)
                             }} className="text-black z-50 text-xl font-semibold 

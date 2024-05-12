@@ -43,4 +43,6 @@
 .hideArrow {
     display: none;
   }
-  
+  .italic{
+    font-style: italic;
+  }
