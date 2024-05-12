@@ -118,14 +118,20 @@ const Nav = () => {
                 }
 
                 {
-                    visible ? (<div className="flex flex-col z-50">
+                    visible ? (<div title={user.displayName} className="flex flex-col z-50">
                         <ul className="flex flex-col gap-4 items-start drp">
                             <button onClick={() => {
                                 setVisible(false)
                             }} className="text-black text-xl font-semibold">Profile</button>
+                             <button onClick={() => {
+                                setVisible(false)
+                            }} className="text-black text-xl font-semibold">Aplied Job</button>
+                             <button onClick={() => {
+                                setVisible(false)
+                            }} className="text-black text-xl font-semibold">My Job</button>
                             <button onClick={() => {
                                 setVisible(false)
-                            }} className="text-black z-50 text-xl font-semibold">User</button>
+                            }} className="text-black z-50 text-xl font-semibold">Add Job</button>
                             <button onClick={() => {
                                 handleclicked(); setVisible(false)
                             }} className="text-black z-50 text-xl font-semibold 

@@ -39,7 +39,7 @@ const Footer = () => {
                     <img className="w-[30px] h-[30px]" src={facebook} alt="" srcset="" />
                     <img className="w-[30px] h-[30px]" src={github} alt="" srcset="" />
                     <img className="w-[30px] h-[30px]" src={youtube} alt="" srcset="" />
-                    <Link to={'/contact'}>
+                    <Link to={'/con'}>
                         <p className="text-[18px] font-medium">Contact Us</p>
                     </Link>
                 </div>

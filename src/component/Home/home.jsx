@@ -6,6 +6,7 @@ import { Typewriter } from 'react-simple-typewriter'
 import { motion } from "framer-motion"
 import Chart from "./charts";
 import Contact from "./Conatct";
+import Catigories from "../crud/categories";
 const Home = () => {
     const [theme, setTheme] = useState('light');
     const bannerStyle = {
@@ -88,6 +89,7 @@ const Home = () => {
                     </div>
                 </motion.div>
             </div>
+            <Catigories></Catigories>
             <div className="my-14 mx-auto py-4 p-2 text-black shadow-lg rounded-md" 
             >
                 <h1 className="text-3xl font-semibold

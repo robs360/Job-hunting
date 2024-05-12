@@ -17,13 +17,13 @@ const Contact=()=>{
                    <h1 className="text-center text-3xl font-semibold">
                     How can we help you?</h1>
                     <div className="grid grid-cols-1 mt-10 gap-5 md:grid-cols-2">
-                        <input type="text" className="w-[280px] h-[55px]
+                        <input type="text" className="w-[300px] h-[55px]
                         rounded-sm mx-auto p-1 border-2 border-gray-400" placeholder="Name"/>
-                        <input type="text" className="w-[280px] h-[55px]
+                        <input type="text" className="w-[300px] h-[55px]
                         rounded-sm mx-auto p-1 border-2 border-gray-400" placeholder="Email"/>
-                        <input type="text" className="w-[280px] h-[55px]
+                        <input type="text" className="w-[300px] h-[55px]
                         rounded-sm mx-auto p-1 border-2 border-gray-400" placeholder="Place"/>
-                        <input type="text" className="w-[280px] h-[55px]
+                        <input type="text" className="w-[300px] h-[55px]
                         rounded-sm mx-auto p-1 border-2 border-gray-400" placeholder="ID"/>
                        
                     </div>

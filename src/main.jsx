@@ -12,6 +12,8 @@ import Login from './component/Authentication/login.jsx';
 import Home from './component/Home/home.jsx';
 import Register from './component/Authentication/Register.jsx';
 import Error from './Error.jsx';
+import Contact from './component/Home/Conatct.jsx';
+import Addjob from './component/crud/Addjob.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
       {
         path:'/reg',
         element:<Register></Register>
+      },
+      {
+        path:'/con',
+        element:<Contact></Contact>
+      },
+      {
+        path:'/addjob',
+        element:<Addjob></Addjob>
       }
     ]
   },
