@@ -19,6 +19,7 @@ import Details from './component/crud/Details.jsx';
 import Myjob from './component/crud/Myjob.jsx';
 import Update from './component/crud/Update.jsx';
 import Private from './Private.jsx';
+import Appliedjob from './component/crud/Appliedjob.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path:'/myjob',
         element:<Private><Myjob></Myjob></Private>
+      },
+      {
+        path:'/applied',
+        element:<Private><Appliedjob></Appliedjob></Private>
       },
       {
         path:'/update/:id',

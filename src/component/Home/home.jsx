@@ -19,12 +19,9 @@ const Home = () => {
     };
   
     useEffect(() => {
-        localStorage.setItem('theme', theme);
-        const localtheme = localStorage.getItem('theme');
-        console.log(localtheme)
-        document.querySelector('html').setAttribute('data-theme', localtheme)
+       
     }, [theme])
-
+    console.log(theme)
     return (
         <div className="w-[95%] mx-auto">
 
