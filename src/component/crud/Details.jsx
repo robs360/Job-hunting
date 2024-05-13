@@ -10,9 +10,10 @@ import Swal from "sweetalert2";
 const Details = () => {
     const singleData = useLoaderData();
     const [modal,setModal]=useState(false);
+    const [app,setApp]=useState(singleData.applicant)
     console.log(singleData);
     const {user}=useContext(AuthContext)
-
+    
     const handleSubmit=(e)=>{
          e.preventDefault();
          const name=e.target.name.value;
@@ -32,8 +33,10 @@ const Details = () => {
             return;
          }
          if(today>date){
+            console.log('done')
+            alert('sorry date is over')
             toast.error('Sorry! Date is over')
-            return;
+            return; 
          }
          const applyInfo={
             name,email,resume,byerEmail,cat
@@ -48,6 +51,7 @@ const Details = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
+            setApp(app=>app+1);
             Swal.fire({
                 title:'Success!',
                 text:'Spot Added Successfully',
@@ -55,6 +59,18 @@ const Details = () => {
                 confirmButtonText:'Cool'
             })
         })
+        const updateData={
+            app
+        }
+        fetch(`http://localhost:5000/jobs/${singleData._id}`,{
+            method:'PUT',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(updateData)
+        })
+        .then(res=>res.json())
+        .then(data=>console.log(data))
     }
     return (
         <div className="mx-auto w-[96%]">
