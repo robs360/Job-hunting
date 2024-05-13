@@ -126,9 +126,9 @@ const Nav = () => {
                              <button onClick={() => {
                                 setVisible(false)
                             }} className="text-black text-xl font-semibold">Aplied Job</button>
-                             <button onClick={() => {
+                            <Link to={'/myjob'}> <button onClick={() => {
                                 setVisible(false)
-                            }} className="text-black text-xl font-semibold">My Job</button>
+                            }} className="text-black text-xl font-semibold">My Job</button></Link>
                            <Link to={'/addjob'}> <button onClick={() => {
                                 setVisible(false)
                             }} className="text-black z-50 text-xl font-semibold">Add Job</button></Link>

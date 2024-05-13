@@ -16,6 +16,8 @@ import Contact from './component/Home/Conatct.jsx';
 import Addjob from './component/crud/Addjob.jsx';
 import Alljob from './component/crud/Alljob.jsx';
 import Details from './component/crud/Details.jsx';
+import Myjob from './component/crud/Myjob.jsx';
+import Update from './component/crud/Update.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,6 +47,14 @@ const router = createBrowserRouter([
       {
         path:'/alljob',
         element:<Alljob></Alljob>
+      },
+      {
+        path:'/myjob',
+        element:<Myjob></Myjob>
+      },
+      {
+        path:'/update/:id',
+        element:<Update></Update>
       },
       {
         path:'/details/:id',
