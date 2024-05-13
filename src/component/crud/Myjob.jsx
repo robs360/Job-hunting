@@ -9,7 +9,6 @@ import Swal from "sweetalert2";
 const Myjob = () => {
     const { user } = useContext(AuthContext);
     console.log(user?.email)
-
     const [info, setInfo] = useState([]);
     const [loading,setLoading]=useState(true);
     useEffect(() => {
@@ -102,7 +101,7 @@ const Myjob = () => {
                         </td>
                         <td>
                             <div className="w-[100px] mx-auto mt-4">
-                               <Link to={`/update/:${item._id}`}> <button>
+                               <Link to={`/update/${item._id}`}> <button>
                                     <img src={UpDate} className="w-[45px] h-[45px]
                                   mx-auto"
                                         alt="" srcset="" />

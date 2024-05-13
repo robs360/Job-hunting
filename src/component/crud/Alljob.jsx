@@ -14,7 +14,7 @@ const Alljob = () => {
             .then(data => {
                 setInfo(data)
             })
-    }, [])
+    }, [query])
     console.log(query);
  
     const bannerStyle = {

@@ -4,10 +4,12 @@ import astronot from '../../assets/images/astronot.json'
 import Lottie from "lottie-react";
 import google from '../../assets/images/google.png'
 import git from '../../assets/images/git.png'
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 const Login = () => {
     const { signIn, googleSignin } = useContext(AuthContext);
+    const location = useLocation()
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
         const Email = e.target.email.value;
@@ -16,7 +18,7 @@ const Login = () => {
             .then(res => {
                 console.log(res.user)
                 toast.success('Wow you have Succesfully loged-in')
-
+                navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 console.error(error)
@@ -29,6 +31,7 @@ const Login = () => {
             .then(res => {
                 console.log(res.user)
                 toast('Wow!You are in here')
+                navigate(location?.state ? location.state : '/')
             })
             .catch(error => console.error(error))
     }

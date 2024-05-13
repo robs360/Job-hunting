@@ -18,6 +18,7 @@ import Alljob from './component/crud/Alljob.jsx';
 import Details from './component/crud/Details.jsx';
 import Myjob from './component/crud/Myjob.jsx';
 import Update from './component/crud/Update.jsx';
+import Private from './Private.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/addjob',
-        element:<Addjob></Addjob>
+        element:<Private><Addjob></Addjob></Private>
       },
       {
         path:'/alljob',
@@ -50,15 +51,16 @@ const router = createBrowserRouter([
       },
       {
         path:'/myjob',
-        element:<Myjob></Myjob>
+        element:<Private><Myjob></Myjob></Private>
       },
       {
         path:'/update/:id',
-        element:<Update></Update>
+        element:<Private><Update></Update></Private>,
+        loader:({params})=>fetch(`http://localhost:5000/jobs/${params.id}`)
       },
       {
         path:'/details/:id',
-        element:<Details></Details>,
+        element:<Private><Details></Details></Private>,
         loader:({params})=>fetch(`http://localhost:5000/jobs/${params.id}`)
       }
     ]

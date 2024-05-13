@@ -7,7 +7,8 @@ import logout from '../../assets/images/logout.png'
 import { toast } from "react-toastify";
 import menu from '../../assets/images/icon.png'
 import cros from '../../assets/images/cros.png'
-
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
 const Nav = () => {
     const [visible, setVisible] = useState(false);
     const [visit,setVisit]=useState(false)
@@ -106,9 +107,9 @@ const Nav = () => {
                         }
                     }}>
 
-                        <img src={user.photoURL} className="w-[40px]
+                        <img title={user?.displayName} data-tooltip-id="hello" src={user.photoURL} className="w-[40px]
                          h-[40px] rounded-[50%]" alt="" />
-
+                         <Tooltip id="hello" />
                     </button>) : (<Link to={'/log'}>
                         <button
                             className="text-white btn text-xl font-semibold">
