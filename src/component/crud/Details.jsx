@@ -1,16 +1,68 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import '../Home/style.css'
 import './modal.css' 
+import close from '../../assets/images/close.png'
+import { AuthContext } from "../../AuthProvider";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
+
 const Details = () => {
     const singleData = useLoaderData();
+    const [modal,setModal]=useState(false);
     console.log(singleData);
+    const {user}=useContext(AuthContext)
+
+    const handleSubmit=(e)=>{
+         e.preventDefault();
+         const name=e.target.name.value;
+         const email=e.target.email.value;
+         const resume=e.target.resume.value;
+         const byerEmail=singleData.email;
+         const today = new Date();
+         const date=  new Date(singleData.date);             
+         const cat=singleData.catigory
+
+         console.log(today,' ',date)
+         console.log('Byer email ',byerEmail)
+         console.log(email);
+         if(email===byerEmail){
+            console.log('adfkjdfkj')
+            toast.error('Same email user can not bit this')
+            return;
+         }
+         if(today>date){
+            toast.error('Sorry! Date is over')
+            return;
+         }
+         const applyInfo={
+            name,email,resume,byerEmail,cat
+         }
+         fetch('http://localhost:5000/apply',{
+            method:'POST',
+            headers:{
+             'content-type':'application/json'
+            },
+            body:JSON.stringify(applyInfo),
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            Swal.fire({
+                title:'Success!',
+                text:'Spot Added Successfully',
+                icon:'success',
+                confirmButtonText:'Cool'
+            })
+        })
+    }
     return (
         <div className="mx-auto w-[96%]">
+           
             <h1 className="font-semibold ml-4">Back to Product </h1>
             <div className="p-1 md:p-3 rounded-md shadow-md flex space-x-2 md:flex-row flex-col items-center">
-                <div className="">
-                    <img src={singleData.photo} className="w-[330px] h-[320px] rounded-md" alt="" srcset="" />
+                <div  className="">
+                    <img src={singleData.photo} className="md:w-[570px] h-[320px] rounded-md" alt="" srcset="" />
                 </div>
                 <div>
                     <h1 className="text-3xl font-medium italic">{singleData.title}</h1>
@@ -46,9 +98,44 @@ const Details = () => {
                         <h1 className="p-1 bg-black rounded-xl
                             text-[16px] text-white font-medium italic"
                         >{singleData.email}</h1>
-                        <h1 className="p-1 px-4 bg-black rounded-xl
+                        <button onClick={()=>{
+                            setModal(true)
+                        }} className="p-1 px-4 bg-black rounded-xl
                             text-[16px] text-white font-medium italic"
-                        >Apply Now</h1>
+                        >Apply Now</button>
+                      {
+                        modal&&(
+                            <div className="modal">
+                            <div className="overlay"></div>
+                            <div className="modal-content">
+                                   <h1 className="text-center text-2xl
+                                    font-semibold my-3">Let's Try</h1>
+                                    <form onSubmit={handleSubmit}>
+                                        <input className="w-[300px] h-[40px] rounded-md
+                                         border-2 border-gray-400 p-1
+                                        " name="name" type="text" value={user?.displayName} placeholder="Your Name" />
+                                        <input className="w-[300px] h-[40px] rounded-md 
+                                        border-2 border-gray-400 mt-3 p-1
+                                        " type="email" name="email" value={user?.email} placeholder="Your Email" />
+                                        <input className="w-[300px] h-[45px] rounded-md 
+                                        border-2 border-gray-400 mt-3 p-1
+                                        " type="text" name="resume" placeholder="Your Resume Link" />
+                                        <button className="w-[300px] h-[40px] rounded-md bg-black
+                                        text-[18px] font-semibold text-white mt-3">Submit</button>
+                                    </form>
+                                    <h1>email:{singleData.email}</h1>
+                                    <button className="absolute -top-2 -right-2
+                                     bg-white flex items-center justify-center
+                                    rounded-[50%] w-[30px] h-[30px]" onClick={()=>{
+                                        setModal(false)
+                                    }}>
+                                        <img src={close} className="
+                                        w-[26px] h-[26px]" alt="" srcset="" />
+                                    </button>
+                            </div>
+                        </div>
+                        )
+                      }
                     </div>
                 </div>
             </div>

@@ -23,6 +23,7 @@ const Register = () => {
         const Password = e.target.password.value;
         createUser(Email, Password)
             .then(res => {
+                toast('Wow! You are in here')
                 console.log(res.user)
                 updateProfile(auth.currentUser, {
                     displayName: Name, photoURL: photo
@@ -32,7 +33,7 @@ const Register = () => {
                 }).catch((error) => {
                     console.log('No')
                 });
-                toast('Wow! You are in here')
+                
             })
             .catch(error => {
                 toast.error(error.message)
