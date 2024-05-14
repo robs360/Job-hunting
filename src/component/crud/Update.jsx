@@ -32,7 +32,7 @@ const Update = () => {
             title,description
         }
         console.log(updateInfo);
-        fetch(`http://localhost:5000/job/${singleData._id}`,{
+        fetch(`https://job-server-ochre.vercel.app/job/${singleData._id}`,{
             method:'PUT',
             headers:{
                 'content-type':'application/json'

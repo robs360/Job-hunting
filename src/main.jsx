@@ -61,12 +61,12 @@ const router = createBrowserRouter([
       {
         path:'/update/:id',
         element:<Private><Update></Update></Private>,
-        loader:({params})=>fetch(`http://localhost:5000/jobs/${params.id}`)
+        loader:({params})=>fetch(`https://job-server-ochre.vercel.app/jobs/${params.id}`)
       },
       {
         path:'/details/:id',
         element:<Private><Details></Details></Private>,
-        loader:({params})=>fetch(`http://localhost:5000/jobs/${params.id}`)
+        loader:({params})=>fetch(`https://job-server-ochre.vercel.app/jobs/${params.id}`)
       }
     ]
   },

@@ -37,7 +37,7 @@ const Addjob = () => {
             catigory,descrip,salary,date,applicant
         }
         console.log(jobInfo);
-        fetch('http://localhost:5000/jobs',{
+        fetch('https://job-server-ochre.vercel.app/jobs',{
             method:'POST',
             headers:{
              'content-type':'application/json'

@@ -22,13 +22,18 @@ const Details = () => {
          const byerEmail=singleData.email;
          const today = new Date();
          const date=  new Date(singleData.date);             
-         const cat=singleData.catigory
-
+         const cat=singleData.catigory;
+         const post=singleData.post;
+         const photo=singleData.photo;
+         const title=singleData.title;
+         const descrip=singleData.descrip
+         const salary=singleData.salary
          console.log(today,' ',date)
          console.log('Byer email ',byerEmail)
          console.log(email);
          if(email===byerEmail){
             console.log('adfkjdfkj')
+            alert('Sorry byer email and applicant email is same')
             toast.error('Same email user can not bit this')
             return;
          }
@@ -39,9 +44,10 @@ const Details = () => {
             return; 
          }
          const applyInfo={
-            name,email,resume,byerEmail,cat
+            name,email,resume,byerEmail,cat,date,post,photo,
+            title,descrip,salary
          }
-         fetch('http://localhost:5000/apply',{
+         fetch('https://job-server-ochre.vercel.app/apply',{
             method:'POST',
             headers:{
              'content-type':'application/json'
@@ -62,7 +68,7 @@ const Details = () => {
         const updateData={
             app
         }
-        fetch(`http://localhost:5000/jobs/${singleData._id}`,{
+        fetch(`https://job-server-ochre.vercel.app/jobs/${singleData._id}`,{
             method:'PUT',
             headers:{
                 'content-type':'application/json'

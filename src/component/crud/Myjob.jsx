@@ -12,7 +12,7 @@ const Myjob = () => {
     const [info, setInfo] = useState([]);
     const [loading,setLoading]=useState(true);
     useEffect(() => {
-        fetch('http://localhost:5000/jobs')
+        fetch('https://job-server-ochre.vercel.app/jobs')
             .then(res => res.json())
             .then(data => {
                 const filterData = data.filter(item => item.email === user.email)
@@ -40,7 +40,7 @@ const Myjob = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/jobs/${id}`, {
+                fetch(`https://job-server-ochre.vercel.app/jobs/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

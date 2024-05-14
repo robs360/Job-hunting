@@ -104,6 +104,24 @@ const Home = () => {
                 </div>
             </div>
             <Contact></Contact>
+            <div className="w-[95%] mx-auto rounded-md my-16 shadow-md">
+                   <h1 className="text-3xl font-medium text-center">Blog Page</h1>
+                   <p className="my-4 text-center font-medium">Fiverr releases its new report,
+                    Strategic Insights: Leveraging Freelance Talent in
+                     Tech,detailing the <br />
+                      priorities and challenges of the tech industry today.</p>
+            </div>
+            <div className="w-[95%] mx-auto">
+                  <p>What is an access token and refresh token? How do they work and where should
+                  we store them on the client side?</p>
+                  <textarea
+                   name="" cols={40} placeholder="Ans:" value="The access token  is used to authenticate API requests to access protected resources, while the refresh token is  used to obtain new access tokens once the current ones expire"
+                   className="p-2 border-2 border-black" rows={5} id=""></textarea>
+                     <p> What is express js? What is Nest JS </p>
+                  <textarea
+                   name="" cols={40} placeholder="Ans:" value="Both NestJS and Express. js are frameworks, specifically for building backend web applications. A framework is an opinionated set of tools that serves as a basis or a starting point for creating something."
+                   className="p-2 border-2 border-black" rows={5} id=""></textarea>
+            </div>
         </div>
     );
 };

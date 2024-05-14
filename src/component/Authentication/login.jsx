@@ -18,6 +18,20 @@ const Login = () => {
             .then(res => {
                 console.log(res.user)
                 toast.success('Wow you have Succesfully loged-in')
+                const uSer={Email}
+                // fetch('http://localhost:5000/jwt',{
+                //     method:'POST',
+                //     headers:{
+                //         'content-type':'application/json'
+                //     },
+                //     // credentials:'include',
+                //     body:JSON.stringify(uSer)
+                // })
+                
+                // .then(res=>res.json())
+                // .then(data=>{
+                //     console.log(data)
+                // })
                 navigate(location?.state ? location.state : '/')
             })
             .catch(error => {

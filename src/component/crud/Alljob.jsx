@@ -9,7 +9,7 @@ const Alljob = () => {
     const [query, setQuery] = useState('')
     
     useEffect(() => {
-        fetch(`http://localhost:5000/search?q=${query}`)
+        fetch(`https://job-server-ochre.vercel.app/search?q=${query}`)
             .then(res => res.json())
             .then(data => {
                 setInfo(data)

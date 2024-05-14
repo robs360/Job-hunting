@@ -33,7 +33,20 @@ const Register = () => {
                 }).catch((error) => {
                     console.log('No')
                 });
+                 const uSer={Email}
+                fetch('http://localhost:5000/jwt',{
+                    method:'POST',
+                    headers:{
+                        'content-type':'application/json'
+                    },
+                    credentials:'include',
+                    body:JSON.stringify(uSer)
+                })
                 
+                .then(res=>res.json())
+                .then(data=>{
+                    console.log(data)
+                })
             })
             .catch(error => {
                 toast.error(error.message)
