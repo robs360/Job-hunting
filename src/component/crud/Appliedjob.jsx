@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import star from '../../assets/images/star2.png'
 import { AuthContext } from "../../AuthProvider";
-
+import { usePDF } from 'react-to-pdf';
+import download from '../../assets/images/download.png'
 const Appliedjob = () => {
-
+    const { toPDF, targetRef } = usePDF({ filename: 'Appliedjob.jsx' });
     const { user } = useContext(AuthContext);
     const [job, setJob] = useState([]);
     const [loading, setLoading] = useState(true)
@@ -24,10 +25,22 @@ const Appliedjob = () => {
         setSelectedOption(event.target.value);
         console.log('Selected option:', event.target.value);
     };
-   
-    console.log(selectedOption);
+
+
     return (
         <div>
+            <div className="w-[250px] mx-auto">
+                <button className="h-[40px] w-full 
+                text-[18px] font-semibold flex space-x-3 items-center
+                 rounded-md bg-green-400" onClick={() => toPDF()}> 
+                 <span className="">Download PDF</span>
+                 <img src={download} className="w-[25px] h-[30px]
+                 " alt="" srcset="" />
+                 </button>
+                <div ref={targetRef}>
+                </div>
+            </div>
+            {/* <a download="download-btn" href=""></a> */}
             <p className="text-[18px] font-semibold text-center my-6 text-red-500">
                 Please Check the all category Because some catagory are empty (not applied)</p>
             <div className="w-[160px] mx-auto border-2 rounded-md border-black my-8">
@@ -43,9 +56,9 @@ const Appliedjob = () => {
             </div>
             <div className="w-[97%] mx-auto flex justify-evenly gap-6 items-center lg:flex-row flex-col">
                 <div className="w-[320px] rounded-md shadow-md p-2">
-                    <h1 className="font-semibold text-xl italic mt-3 text-center">All Applied Job
+                    <h1 className="font-semibold text-2xl italic mt-3 text-center">All Applied Job
                         <br />You have Added</h1>
-                    <p className="text-[14px] font-medium
+                    <p className="text-[15px] font-medium
                       text-center italic mt-3">We are looking for a capable
                         Program Coordinator.
                         You will be responsible for a variety of
@@ -88,8 +101,8 @@ const Appliedjob = () => {
                                font-medium italic">{job.length}</p>
                         </div>
                     </div>
-                  
-                   
+
+
                 </div>
                 <div>
                     {
