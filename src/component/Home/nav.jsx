@@ -13,7 +13,7 @@ const Nav = () => {
     const [visible, setVisible] = useState(false);
     const [visit,setVisit]=useState(false)
     const { user, logOut } = useContext(AuthContext);
-
+    
     console.log(logOut)
 
     const handleclicked = () => {
@@ -94,7 +94,6 @@ const Nav = () => {
                </div>):(<></>)
                 }
                  
-             
             </div>
             <div>
                 {

@@ -4,7 +4,7 @@ import banner from '../../assets/images/all.jpg'
 import { Link } from "react-router-dom";
 
 const Alljob = () => {
-
+    
     const [info, setInfo] = useState([])
     const [query, setQuery] = useState('')
     
