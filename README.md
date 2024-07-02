@@ -37,3 +37,11 @@ Here anyone can post job and also bid in a job if a bided job user want to delet
     .sort-by: "^1.2.0",
     .sweetalert2: "^11.11.0",
     .swiper: "^11.1.1"
+
+
+    Bullet Features of the website
+
+    .Can Bid in a job
+    .can post in a job
+    .after time over anyone can not bid in job
+    
