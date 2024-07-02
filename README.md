@@ -11,10 +11,15 @@ Here anyone can post job and also bid in a job if a bided job user want to delet
 
 "aos": "^2.3.4",
     .axios: "^1.6.8",
+    
     .date-fn: "^0.0.2",
+    
     .firebase: "^10.11.1",
+    
     .framer-motion: "^11.1.9",
+    
     .localforage: "^1.10.0",
+    
     .lottie-react: "^2.4.0",
     .match-sorter: "^6.3.4",
     .react: "^18.2.0",
